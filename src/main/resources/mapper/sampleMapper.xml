@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgcns.navis2.sample.mapper.SampleMapper">
+    <select id="getList" resultType="com.lgcns.navis2.sample.dto.SampleDTO">
+        SELECT * FROM t_list
+    </select>
+
+    <update id="saveSample" parameterType="com.lgcns.navis2.sample.dto.SampleDTO">
+		update t_list
+		set currency = #{currency}
+		where seq = #{seq}
+	</update>
+
+    <insert id="createSample" parameterType="com.lgcns.navis2.sample.dto.SampleDTO">
+		INSERT INTO t_list
+        (TYPE, CURRENCY, PRICE, ETC)
+        VALUES (#{type}, #{currency}, #{price}, #{etc});
+	</insert>
+
+
+
+</mapper>
